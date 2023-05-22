@@ -50,6 +50,7 @@ async function loadMoreNews() {
             displayNewsDetails(news);
         }
     }
+    loadMoreBtn.addEventListener('click', loadMoreNews);
 }
 
 const loadMoreBtn = document.getElementById('loadMoreBtn');
