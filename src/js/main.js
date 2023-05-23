@@ -1,13 +1,17 @@
 const axios = require('axios');
 const _ = require('lodash');
 
+const apiUrl = process.env.API_URL;
+let loadedNewsCount = 0;
+
 async function getLatestNewsIds() {
     let newsIds = [];
-    let loadedNewsCount = 0;
 
     try {
-        const response = await axios.get('https://hacker-news.firebaseio.com/v0/newstories.json');
-        newsIds = response.data.slice(0, 10);
+        const response = await axios.get(
+            `${apiUrl}/newstories.json`
+        );
+        newsIds = response.data.slice(loadedNewsCount, loadedNewsCount + 10);
 
         for (const id of newsIds) {
             const news = await getNewsDetails(id);
@@ -15,6 +19,8 @@ async function getLatestNewsIds() {
                 displayNewsDetails(news);
             }
         }
+
+        loadedNewsCount += 10; // Incrementa il numero di notizie caricate
     } catch (error) {
         console.error('Errore durante il recupero degli ID delle ultime notizie:', error);
     }
@@ -26,7 +32,7 @@ getLatestNewsIds();
 
 async function getNewsDetails(id) {
     try {
-        const response = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+        const response = await axios.get(`${apiUrl}/item/${id}.json`);
         return response.data;
     } catch (error) {
         console.error(`Errore durante il recupero dei dettagli della notizia con ID ${id}:`, error);
