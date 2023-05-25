@@ -1,4 +1,6 @@
-async function getNewsDetails(id) {
+function NewsDetails() {
+    async function getNewsDetails(id) {
+    const apiUrl = process.env.API_URL;
     try {
         const response = await axios.get(`${apiUrl}/item/${id}.json`);
         return response.data;
@@ -7,5 +9,6 @@ async function getNewsDetails(id) {
         return null;
     }
 }
+}
 
-module.exports = {getNewsDetails};
+module.exports = {NewsDetails};

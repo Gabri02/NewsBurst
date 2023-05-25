@@ -1,5 +1,7 @@
-async function getLatestNewsIds() {
+function NewsIds() {
+    async function getLatestNewsIds(){
     let newsIds = [];
+    const apiUrl = process.env.API_URL;
 
     try {
         const response = await axios.get(
@@ -21,5 +23,6 @@ async function getLatestNewsIds() {
 
     return { newsIds, loadedNewsCount };
 }
+}
 
-module.exports = {getLatestNewsIds};
+module.exports = {NewsIds};

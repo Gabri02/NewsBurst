@@ -1,4 +1,5 @@
-async function loadMoreNews() {
+function loadMore() {
+    async function loadMoreNews() {
     loadMoreBtn.disabled = true;
 
     const { newsIds, loadedNewsCount } = await getLatestNewsIds();
@@ -19,5 +20,6 @@ async function loadMoreNews() {
 
     loadMoreBtn.disabled = false;
 }
+}
 
-module.exports = {loadMoreNews};
+module.exports = {loadMore};
