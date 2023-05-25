@@ -1,6 +1,8 @@
 const axios = require('axios');
 const _ = require('lodash');
 
+require("../sass/style.sass");
+
 const apiUrl = process.env.API_URL;
 let loadedNewsCount = 0;
 

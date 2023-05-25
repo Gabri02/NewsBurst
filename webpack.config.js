@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  mode: 'development',
+  mode: "production",
   entry: './src/js/main.js', // Percorso del file di ingresso principale
   output: {
     path: path.resolve(__dirname, 'dist'), // Percorso della cartella di output
@@ -17,6 +17,14 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
