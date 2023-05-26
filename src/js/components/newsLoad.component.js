@@ -1,4 +1,5 @@
 const { getNewsDetails } = require('./api.component');
+const { getLatestNewsIds } = require('./news.component');
 
 async function loadMoreNews() {
     loadMoreBtn.disabled = true;

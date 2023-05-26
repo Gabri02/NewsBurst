@@ -190,6 +190,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 var _require = __webpack_require__(/*! ./api.component */ "./src/js/components/api.component.js"),
   getNewsDetails = _require.getNewsDetails;
+var _require2 = __webpack_require__(/*! ./news.component */ "./src/js/components/news.component.js"),
+  getLatestNewsIds = _require2.getLatestNewsIds;
 function loadMoreNews() {
   return _loadMoreNews.apply(this, arguments);
 }
@@ -277,7 +279,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "main {\n  background-color: #950707;\n  max-width: 100vw;\n}\n\n.row {\n  max-width: 100vw;\n}", "",{"version":3,"sources":["webpack://./src/sass/style.sass"],"names":[],"mappings":"AAAA;EACI,yBAAA;EACA,gBAAA;AACJ;;AAAA;EACI,gBAAA;AAGJ","sourcesContent":["main\n    background-color: #950707\n    max-width: 100vw\n.row\n    max-width: 100vw"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "main {\n  background-color: #950707;\n  max-width: 100vw;\n}\n\n.row {\n  max-width: 100vw;\n}", "",{"version":3,"sources":["webpack://./src/sass/style.sass"],"names":[],"mappings":"AAAA;EACI,yBAAA;EACA,gBAAA;AACJ;;AAAA;EACI,gBAAA;AAGJ","sourcesContent":["main\r\n    background-color: #950707\r\n    max-width: 100vw\r\n.row\r\n    max-width: 100vw"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
