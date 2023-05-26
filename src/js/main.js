@@ -1,21 +1,9 @@
-const axios = require('axios');
-const _ = require('lodash');
-const {NewsIds} = require("./components/NewsId.component");
-const {NewsDetails} = require("./components/NewsDetails.component");
-const {displayNews} = require("./components/displayNews.component");
-const {loadMore} = require("./components/loadMore.component");
+require('../sass/style.sass');
 
-require("../sass/style.sass");
-
-let loadedNewsCount = 0;
-
-NewsIds();
-
-NewsDetails();
-
-displayNews()
-
-loadMore();
+const { getLatestNewsIds } = require('./components/news.component');
+const { loadMoreNews } = require('./components/newsLoad.component');
 
 const loadMoreBtn = document.getElementById('loadMoreBtn');
-loadMoreBtn.addEventListener('click', loadMore);
+loadMoreBtn.addEventListener('click', loadMoreNews);
+
+getLatestNewsIds();

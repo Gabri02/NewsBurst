@@ -1,5 +1,6 @@
-function loadMore() {
-    async function loadMoreNews() {
+const { getNewsDetails } = require('./api.component');
+
+async function loadMoreNews() {
     loadMoreBtn.disabled = true;
 
     const { newsIds, loadedNewsCount } = await getLatestNewsIds();
@@ -20,6 +21,5 @@ function loadMore() {
 
     loadMoreBtn.disabled = false;
 }
-}
 
-module.exports = {loadMore};
+module.exports = { loadMoreNews };

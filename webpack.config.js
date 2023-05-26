@@ -15,8 +15,14 @@ module.exports = {
     }),
     new Dotenv()
   ],
+  devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.map$/,
+        enforce: 'pre',
+        loader: 'source-map-loader',
+      },
       {
         test: /\.s[ac]ss$/i,
         use: [
