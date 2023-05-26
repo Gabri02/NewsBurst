@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const nodeExternals = require('webpack-node-externals');
+module.exports.target = 'node';
 
 module.exports = {
   mode: "production",
@@ -8,6 +10,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'), // Percorso della cartella di output
     filename: '[name].bundle.js' // Nome del file di output
+  },
+  externals: [nodeExternals()],
+  resolve: {
+    extensions: ['.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -22,6 +28,16 @@ module.exports = {
         test: /\.map$/,
         enforce: 'pre',
         loader: 'source-map-loader',
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.s[ac]ss$/i,
