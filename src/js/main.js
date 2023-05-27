@@ -1,7 +1,9 @@
-require('../sass/style.sass');
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import ('../sass/style.sass');
 
-const { getLatestNewsIds } = require('./components/news.component');
-const { loadMoreNews } = require('./components/newsLoad.component');
+import { getLatestNewsIds } from './components/news.component';
+import { loadMoreNews } from './components/newsLoad.component';
 
 const loadMoreBtn = document.getElementById('loadMoreBtn');
 loadMoreBtn.addEventListener('click', loadMoreNews);

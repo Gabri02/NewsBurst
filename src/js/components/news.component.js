@@ -1,18 +1,15 @@
-const axios = require('axios');
-const _ = require('lodash');
-
-const { displayNewsDetails } = require('./newsDisplay.component');
-const { getNewsDetails } = require('./api.component');
+import axios from 'axios';
+import { displayNewsDetails } from './newsDisplay.component';
+import { getNewsDetails } from './api.component';
 
 const apiUrl = process.env.API_URL;
 
 let loadedNewsCount = 0;
 let currentPage = 1;
 let totalNewsCount = 0;
-const newsIds = await getLatestNewsIds(startIndex, endIndex);
+let newsIds = [];
 
-
-async function getLatestNewsIds(startIndex, endIndex) {
+export async function getLatestNewsIds(startIndex, endIndex) {
   let newsIds = [];
   try {
     const response = await axios.get(`${apiUrl}/newstories.json`);
@@ -33,5 +30,3 @@ async function getLatestNewsIds(startIndex, endIndex) {
 
   return { newsIds, loadedNewsCount };
 }
-
-module.exports = { getLatestNewsIds };

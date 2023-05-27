@@ -1,6 +1,6 @@
-const { getNewsDetails } = require('./api.component');
-const { getLatestNewsIds } = require('./news.component');
-const _ = require('lodash');
+import { getNewsDetails } from './api.component';
+import { getLatestNewsIds } from './news.component';
+import _ from 'lodash';
 
 const prevPageBtn = document.getElementById('prevPageBtn');
 prevPageBtn.addEventListener('click', goToPreviousPage);
@@ -10,6 +10,7 @@ nextPageBtn.addEventListener('click', goToNextPage);
 
 let currentPage = 1;
 let totalNewsCount = 0;
+const newsPerPage = 10;
 
 async function loadMoreNews() {
     loadMoreBtn.disabled = true;
@@ -89,4 +90,4 @@ async function loadNewsForCurrentPage() {
     nextPageBtn.disabled = currentPage === totalPages;
 }
 
-module.exports = { loadMoreNews };
+export { loadMoreNews };

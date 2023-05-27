@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const apiUrl = process.env.API_URL;
 
@@ -12,4 +12,4 @@ async function getNewsDetails(id) {
   }
 }
 
-module.exports = { getNewsDetails };
+export { getNewsDetails };

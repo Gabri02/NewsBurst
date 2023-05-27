@@ -1,4 +1,4 @@
-function displayNewsDetails(news) {
+export function displayNewsDetails(news) {
     const newsDiv = document.getElementById("newsDiv");
     const { title, url, time } = news;
 
@@ -22,5 +22,3 @@ function displayNewsDetails(news) {
 
     newsDiv.appendChild(div);
 }
-
-module.exports = { displayNewsDetails };
