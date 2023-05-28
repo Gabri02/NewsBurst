@@ -1,5 +1,6 @@
 import { displayNewsDetails } from './newsDisplay.component';
 import { getNewsDetails } from './api.component';
+import { getLatestNewsIds } from './news.component';
 
 const newsPerPage = 10;
 let currentPage = 1;
@@ -70,6 +71,7 @@ function goToNextPage() {
 }
 
 async function loadNewsForCurrentPage() {
+  const nextPageBtn = document.getElementById('nextPageBtn');
   const startIndex = (currentPage - 1) * newsPerPage;
   const endIndex = startIndex + newsPerPage;
   // Modifica il div della pagina corrente in base all'attributo 'data-page'

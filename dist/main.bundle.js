@@ -232,6 +232,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _newsDisplay_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./newsDisplay.component */ "./src/js/components/newsDisplay.component.js");
 /* harmony import */ var _api_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./api.component */ "./src/js/components/api.component.js");
+/* harmony import */ var _news_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./news.component */ "./src/js/components/news.component.js");
 
 
 
@@ -246,6 +247,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+
 
 
 
@@ -271,7 +273,7 @@ function _loadMoreNews() {
           prevPageBtn = document.getElementById('prevPageBtn');
           prevPageBtn.disabled = currentPage === 1;
           _context.next = 8;
-          return getLatestNewsIds(startIndex, endIndex);
+          return (0,_news_component__WEBPACK_IMPORTED_MODULE_16__.getLatestNewsIds)(startIndex, endIndex);
         case 8:
           _yield$getLatestNewsI = _context.sent;
           newsIds = _yield$getLatestNewsI.newsIds;
@@ -355,45 +357,46 @@ function loadNewsForCurrentPage() {
 }
 function _loadNewsForCurrentPage() {
   _loadNewsForCurrentPage = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10___default().mark(function _callee2() {
-    var startIndex, endIndex, currentPageDiv, loadedNews, _iterator2, _step2, id, news, allPages, i, newsContainer, newPageDiv, currentPageIndicator, totalPages;
+    var nextPageBtn, startIndex, endIndex, currentPageDiv, loadedNews, _iterator2, _step2, id, news, allPages, i, newsContainer, newPageDiv, currentPageIndicator, totalPages;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10___default().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
+          nextPageBtn = document.getElementById('nextPageBtn');
           startIndex = (currentPage - 1) * newsPerPage;
           endIndex = startIndex + newsPerPage; // Modifica il div della pagina corrente in base all'attributo 'data-page'
           currentPageDiv = document.querySelector("[data-page=\"".concat(currentPage, "\"]"));
           loadedNews = [];
           _iterator2 = _createForOfIteratorHelper(currentNewsIds.slice(startIndex, endIndex));
-          _context2.prev = 5;
+          _context2.prev = 6;
           _iterator2.s();
-        case 7:
+        case 8:
           if ((_step2 = _iterator2.n()).done) {
-            _context2.next = 15;
+            _context2.next = 16;
             break;
           }
           id = _step2.value;
-          _context2.next = 11;
+          _context2.next = 12;
           return (0,_api_component__WEBPACK_IMPORTED_MODULE_15__.getNewsDetails)(id);
-        case 11:
+        case 12:
           news = _context2.sent;
           if (news) {
             loadedNews.push(news);
           }
-        case 13:
-          _context2.next = 7;
+        case 14:
+          _context2.next = 8;
           break;
-        case 15:
-          _context2.next = 20;
+        case 16:
+          _context2.next = 21;
           break;
-        case 17:
-          _context2.prev = 17;
-          _context2.t0 = _context2["catch"](5);
+        case 18:
+          _context2.prev = 18;
+          _context2.t0 = _context2["catch"](6);
           _iterator2.e(_context2.t0);
-        case 20:
-          _context2.prev = 20;
+        case 21:
+          _context2.prev = 21;
           _iterator2.f();
-          return _context2.finish(20);
-        case 23:
+          return _context2.finish(21);
+        case 24:
           // Hide all pages
           allPages = document.getElementsByClassName('news-page');
           for (i = 0; i < allPages.length; i++) {
@@ -423,11 +426,11 @@ function _loadNewsForCurrentPage() {
           // Disable the next page button if it's the last page
           totalPages = Math.ceil(totalNewsCount / newsPerPage);
           nextPageBtn.disabled = currentPage === totalPages;
-        case 30:
+        case 31:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[5, 17, 20, 23]]);
+    }, _callee2, null, [[6, 18, 21, 24]]);
   }));
   return _loadNewsForCurrentPage.apply(this, arguments);
 }
