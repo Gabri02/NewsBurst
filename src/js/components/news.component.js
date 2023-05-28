@@ -1,32 +1,32 @@
-const axios = require('axios');
-const _ = require('lodash');
-
-const { displayNewsDetails } = require('./newsDisplay.component');
-const { getNewsDetails } = require('./api.component');
+import axios from "axios";
 
 const apiUrl = process.env.API_URL;
 
-let loadedNewsCount = 0;
-
-async function getLatestNewsIds() {
-  let newsIds = [];
+export async function getNewsDetails(id) {
   try {
-    const response = await axios.get(`${apiUrl}/newstories.json`);
-    newsIds = response.data.slice(loadedNewsCount, loadedNewsCount + 10);
-
-    for (const id of newsIds) {
-      const news = await getNewsDetails(id);
-      if (news) {
-        displayNewsDetails(news);
-      }
-    }
-
-    loadedNewsCount += 10;
+    const response = await axios.get(`${apiUrl}/item/${id}.json`);
+    return response.data;
   } catch (error) {
-    console.error('Errore durante il recupero degli ID delle ultime notizie:', error);
+    console.error(
+      `Errore durante il recupero dei dettagli della notizia con ID ${id}:`,
+      error
+    );
+    return null;
   }
-
-  return { newsIds, loadedNewsCount };
 }
 
-module.exports = { getLatestNewsIds };
+export async function getLatestNewsIds(startIndex = 0, endIndex = 10) {
+  try {
+    const response = await axios.get(`${apiUrl}/newstories.json`);
+    const newsIds = response.data;
+    const slicedNewsIds = newsIds.slice(startIndex, endIndex);
+    return slicedNewsIds;
+  } catch (error) {
+    console.error(
+      "Errore durante il recupero degli ID delle ultime notizie:",
+      error
+    );
+    return [];
+  }
+}
+
