@@ -1,15 +1,16 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/components/api.component.js":
-/*!********************************************!*\
-  !*** ./src/js/components/api.component.js ***!
-  \********************************************/
+/***/ "./src/js/components/news.component.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/news.component.js ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getLatestNewsIds: () => (/* binding */ getLatestNewsIds),
 /* harmony export */   getNewsDetails: () => (/* binding */ getNewsDetails)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
@@ -17,7 +18,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
 /* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.slice.js */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+
 
 
 
@@ -34,7 +38,7 @@ function _getNewsDetails() {
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("".concat(apiUrl, "/item/").concat(id, ".json"));
+          return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("".concat(apiUrl, "/item/").concat(id, ".json"));
         case 3:
           response = _context.sent;
           return _context.abrupt("return", response.data);
@@ -51,101 +55,40 @@ function _getNewsDetails() {
   }));
   return _getNewsDetails.apply(this, arguments);
 }
-
-
-/***/ }),
-
-/***/ "./src/js/components/news.component.js":
-/*!*********************************************!*\
-  !*** ./src/js/components/news.component.js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getLatestNewsIds: () => (/* binding */ getLatestNewsIds)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.slice.js */ "./node_modules/core-js/modules/es.array.slice.js");
-/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _newsDisplay_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./newsDisplay.component */ "./src/js/components/newsDisplay.component.js");
-/* harmony import */ var _api_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./api.component */ "./src/js/components/api.component.js");
-
-
-
-
-
-
-var apiUrl = "https://hacker-news.firebaseio.com/v0";
-var loadedNewsCount = 0;
-var currentPage = 1;
-var totalNewsCount = 0;
-var newsIds = [];
 function getLatestNewsIds() {
   return _getLatestNewsIds.apply(this, arguments);
 }
 function _getLatestNewsIds() {
-  _getLatestNewsIds = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+  _getLatestNewsIds = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
     var startIndex,
       endIndex,
       response,
-      i,
-      newsItem,
-      _args = arguments;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
+      newsIds,
+      slicedNewsIds,
+      _args2 = arguments;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          startIndex = _args.length > 0 && _args[0] !== undefined ? _args[0] : 0;
-          endIndex = _args.length > 1 && _args[1] !== undefined ? _args[1] : 10;
-          _context.prev = 2;
-          _context.next = 5;
-          return axios__WEBPACK_IMPORTED_MODULE_5__["default"].get("".concat(apiUrl, "/newstories.json"));
+          startIndex = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 0;
+          endIndex = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : 10;
+          _context2.prev = 2;
+          _context2.next = 5;
+          return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("".concat(apiUrl, "/newstories.json"));
         case 5:
-          response = _context.sent;
-          newsIds = response.data.slice(startIndex, endIndex);
-          totalNewsCount = newsIds.length; // Aggiungi questa riga per aggiornare correttamente totalNewsCount
-          i = 0;
-        case 9:
-          if (!(i < newsIds.length)) {
-            _context.next = 18;
-            break;
-          }
-          _context.next = 12;
-          return (0,_api_component__WEBPACK_IMPORTED_MODULE_4__.getNewsDetails)(newsIds[i]);
-        case 12:
-          newsItem = _context.sent;
-          if (newsItem) {
-            (0,_newsDisplay_component__WEBPACK_IMPORTED_MODULE_3__.displayNewsDetails)(newsItem, currentPage); // Passa il numero di pagina corrente
-          }
-
-          loadedNewsCount += 1;
+          response = _context2.sent;
+          newsIds = response.data;
+          slicedNewsIds = newsIds.slice(startIndex, endIndex);
+          return _context2.abrupt("return", slicedNewsIds);
+        case 11:
+          _context2.prev = 11;
+          _context2.t0 = _context2["catch"](2);
+          console.error("Errore durante il recupero degli ID delle ultime notizie:", _context2.t0);
+          return _context2.abrupt("return", []);
         case 15:
-          i++;
-          _context.next = 9;
-          break;
-        case 18:
-          loadedNewsCount += 10;
-          _context.next = 24;
-          break;
-        case 21:
-          _context.prev = 21;
-          _context.t0 = _context["catch"](2);
-          console.error('Errore durante il recupero degli ID delle ultime notizie:', _context.t0);
-        case 24:
-          return _context.abrupt("return", {
-            newsIds: newsIds,
-            loadedNewsCount: loadedNewsCount,
-            totalNewsCount: totalNewsCount
-          });
-        case 25:
         case "end":
-          return _context.stop();
+          return _context2.stop();
       }
-    }, _callee, null, [[2, 21]]);
+    }, _callee2, null, [[2, 11]]);
   }));
   return _getLatestNewsIds.apply(this, arguments);
 }
@@ -164,30 +107,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   displayNewsDetails: () => (/* binding */ displayNewsDetails)
 /* harmony export */ });
 function displayNewsDetails(news, page) {
-  var pageDiv = document.getElementById("page".concat(page));
-  if (!pageDiv) {
-    console.error("Impossibile trovare il div della pagina ".concat(page));
-    return;
-  }
   var title = news.title,
     url = news.url,
     time = news.time;
-  var div = document.createElement('div');
-  var heading = document.createElement('h6');
-  var link = document.createElement('a');
-  var paragraph = document.createElement('p');
-  var date = document.createElement('p');
-  var hr = document.createElement('hr');
-  heading.textContent = "Titolo: ".concat(title);
+  var div = document.createElement("div");
+  var heading = document.createElement("h6");
+  var link = document.createElement("a");
+  var paragraph = document.createElement("p");
+  var date = document.createElement("p");
+  var hr = document.createElement("hr");
+  heading.textContent = "Title: ".concat(title);
   link.textContent = "Link: ".concat(url);
   link.href = url;
   paragraph.appendChild(link);
-  date.textContent = "Data: ".concat(new Date(time * 1000).toLocaleString());
+  date.textContent = "Date: ".concat(new Date(time * 1000).toLocaleString());
   div.appendChild(heading);
   div.appendChild(paragraph);
   div.appendChild(date);
   div.appendChild(hr);
-  pageDiv.appendChild(div);
+  var pageNumber = page > 0 ? page : 1;
+  var pageDiv = document.getElementById("page".concat(pageNumber));
+  if (pageDiv) {
+    pageDiv.appendChild(div);
+  } else {
+    console.error("Unable to find page ".concat(pageNumber, " div"));
+  }
 }
 
 /***/ }),
@@ -201,38 +145,42 @@ function displayNewsDetails(news, page) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   loadMoreNews: () => (/* binding */ loadMoreNews)
+/* harmony export */   getLatestNewsIds: () => (/* binding */ getLatestNewsIds),
+/* harmony export */   goToNextPage: () => (/* binding */ goToNextPage),
+/* harmony export */   goToPreviousPage: () => (/* binding */ goToPreviousPage),
+/* harmony export */   loadMoreNews: () => (/* binding */ loadMoreNews),
+/* harmony export */   loadNewsForCurrentPage: () => (/* binding */ loadNewsForCurrentPage)
 /* harmony export */ });
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.from.js */ "./node_modules/core-js/modules/es.array.from.js");
-/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ "./node_modules/core-js/modules/es.string.iterator.js");
-/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
-/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.symbol.js */ "./node_modules/core-js/modules/es.symbol.js");
-/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.symbol.description.js */ "./node_modules/core-js/modules/es.symbol.description.js");
-/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.symbol.iterator.js */ "./node_modules/core-js/modules/es.symbol.iterator.js");
-/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.array.iterator.js */ "./node_modules/core-js/modules/es.array.iterator.js");
-/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.from.js */ "./node_modules/core-js/modules/es.array.from.js");
+/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ "./node_modules/core-js/modules/es.string.iterator.js");
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.symbol.js */ "./node_modules/core-js/modules/es.symbol.js");
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.symbol.description.js */ "./node_modules/core-js/modules/es.symbol.description.js");
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.symbol.iterator.js */ "./node_modules/core-js/modules/es.symbol.iterator.js");
+/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.array.iterator.js */ "./node_modules/core-js/modules/es.array.iterator.js");
+/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
 /* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.array.slice.js */ "./node_modules/core-js/modules/es.array.slice.js");
 /* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _newsDisplay_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./newsDisplay.component */ "./src/js/components/newsDisplay.component.js");
-/* harmony import */ var _api_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./api.component */ "./src/js/components/api.component.js");
-/* harmony import */ var _news_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./news.component */ "./src/js/components/news.component.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _newsDisplay_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./newsDisplay.component */ "./src/js/components/newsDisplay.component.js");
+/* harmony import */ var _news_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./news.component */ "./src/js/components/news.component.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+
+
 
 
 
@@ -250,105 +198,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-
-
-
+var apiUrl = "https://hacker-news.firebaseio.com/v0";
 var newsPerPage = 10;
 var currentPage = 1;
 var totalNewsCount = 0;
 var currentNewsIds = [];
-function loadMoreNews() {
-  return _loadMoreNews.apply(this, arguments);
-}
-function _loadMoreNews() {
-  _loadMoreNews = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10___default().mark(function _callee() {
-    var loadMoreBtn, startIndex, endIndex, prevPageBtn, _yield$getLatestNewsI, newsIds, loadedNewsCount, totalNewsCount, nextIds, totalPages, nextPageBtn, loadedNews, _iterator, _step, id, news, newsContainer, currentPageDiv, newPageDiv;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10___default().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
-        case 0:
-          loadMoreBtn = document.getElementById('loadMoreBtn');
-          loadMoreBtn.disabled = true;
-          startIndex = (currentPage - 1) * newsPerPage;
-          endIndex = startIndex + newsPerPage;
-          prevPageBtn = document.getElementById('prevPageBtn');
-          prevPageBtn.disabled = currentPage === 1;
-          _context.next = 8;
-          return (0,_news_component__WEBPACK_IMPORTED_MODULE_16__.getLatestNewsIds)(startIndex, endIndex);
-        case 8:
-          _yield$getLatestNewsI = _context.sent;
-          newsIds = _yield$getLatestNewsI.newsIds;
-          loadedNewsCount = _yield$getLatestNewsI.loadedNewsCount;
-          totalNewsCount = _yield$getLatestNewsI.totalNewsCount;
-          currentNewsIds = newsIds;
-          nextIds = currentNewsIds.slice(loadedNewsCount, loadedNewsCount + newsPerPage);
-          prevPageBtn.disabled = currentPage === 1;
-          totalPages = Math.ceil(totalNewsCount / newsPerPage);
-          nextPageBtn = document.getElementById('nextPageBtn');
-          nextPageBtn.disabled = currentPage === totalPages;
-          loadedNews = [];
-          _iterator = _createForOfIteratorHelper(nextIds);
-          _context.prev = 20;
-          _iterator.s();
-        case 22:
-          if ((_step = _iterator.n()).done) {
-            _context.next = 30;
-            break;
-          }
-          id = _step.value;
-          _context.next = 26;
-          return (0,_api_component__WEBPACK_IMPORTED_MODULE_15__.getNewsDetails)(id);
-        case 26:
-          news = _context.sent;
-          if (news) {
-            loadedNews.push(news);
-          }
-        case 28:
-          _context.next = 22;
-          break;
-        case 30:
-          _context.next = 35;
-          break;
-        case 32:
-          _context.prev = 32;
-          _context.t0 = _context["catch"](20);
-          _iterator.e(_context.t0);
-        case 35:
-          _context.prev = 35;
-          _iterator.f();
-          return _context.finish(35);
-        case 38:
-          newsContainer = document.getElementById('newsContainer'); // Check if the current page div exists
-          currentPageDiv = document.getElementById("page".concat(currentPage));
-          if (!currentPageDiv) {
-            // If the div doesn't exist, create a new div for the current page and append it to newsContainer
-            newPageDiv = document.createElement('div');
-            newPageDiv.id = "page".concat(currentPage);
-            newPageDiv.className = 'news-page';
-            newsContainer.appendChild(newPageDiv);
-          }
-          loadedNews.forEach(function (news) {
-            (0,_newsDisplay_component__WEBPACK_IMPORTED_MODULE_14__.displayNewsDetails)(news, currentPage); // Pass the current page number
-          });
-
-          loadMoreBtn.disabled = false;
-        case 43:
-        case "end":
-          return _context.stop();
-      }
-    }, _callee, null, [[20, 32, 35, 38]]);
-  }));
-  return _loadMoreNews.apply(this, arguments);
-}
+var currentPageDiv = null;
 function goToPreviousPage() {
   if (currentPage > 1) {
-    currentPage -= 1;
+    currentPage--;
     loadNewsForCurrentPage();
   }
 }
 function goToNextPage() {
   var totalPages = Math.ceil(totalNewsCount / newsPerPage);
   if (currentPage < totalPages) {
-    currentPage += 1;
+    currentPage++;
     loadNewsForCurrentPage();
   }
 }
@@ -356,85 +221,182 @@ function loadNewsForCurrentPage() {
   return _loadNewsForCurrentPage.apply(this, arguments);
 }
 function _loadNewsForCurrentPage() {
-  _loadNewsForCurrentPage = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10___default().mark(function _callee2() {
-    var nextPageBtn, startIndex, endIndex, currentPageDiv, loadedNews, _iterator2, _step2, id, news, allPages, i, newsContainer, newPageDiv, currentPageIndicator, totalPages;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_10___default().wrap(function _callee2$(_context2) {
-      while (1) switch (_context2.prev = _context2.next) {
+  _loadNewsForCurrentPage = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default().mark(function _callee() {
+    var startIndex, endIndex, loadedNewsCount, newsContainer, newPageDiv, _iterator, _step, newsId, newsDetails;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default().wrap(function _callee$(_context) {
+      while (1) switch (_context.prev = _context.next) {
         case 0:
-          nextPageBtn = document.getElementById('nextPageBtn');
           startIndex = (currentPage - 1) * newsPerPage;
-          endIndex = startIndex + newsPerPage; // Modifica il div della pagina corrente in base all'attributo 'data-page'
-          currentPageDiv = document.querySelector("[data-page=\"".concat(currentPage, "\"]"));
-          loadedNews = [];
-          _iterator2 = _createForOfIteratorHelper(currentNewsIds.slice(startIndex, endIndex));
-          _context2.prev = 6;
-          _iterator2.s();
-        case 8:
-          if ((_step2 = _iterator2.n()).done) {
-            _context2.next = 16;
+          endIndex = startIndex + newsPerPage;
+          _context.next = 4;
+          return (0,_news_component__WEBPACK_IMPORTED_MODULE_14__.getLatestNewsIds)(startIndex, endIndex);
+        case 4:
+          currentNewsIds = _context.sent;
+          // Aggiorna totalNewsCount solo se è inferiore al numero di notizie caricate fino ad ora
+          loadedNewsCount = startIndex + currentNewsIds.length;
+          if (loadedNewsCount > totalNewsCount) {
+            totalNewsCount = loadedNewsCount;
+          }
+          newsContainer = document.getElementById("newsContainer");
+          newsContainer.innerHTML = "";
+          currentPageDiv = document.getElementById("page".concat(currentPage));
+          if (currentPageDiv) {
+            currentPageDiv.style.display = "none";
+          }
+          newPageDiv = document.createElement("div");
+          newPageDiv.id = "page".concat(currentPage + 1);
+          newPageDiv.className = "news-page";
+          newsContainer.appendChild(newPageDiv);
+          currentPageDiv = newPageDiv;
+          _iterator = _createForOfIteratorHelper(currentNewsIds);
+          _context.prev = 17;
+          _iterator.s();
+        case 19:
+          if ((_step = _iterator.n()).done) {
+            _context.next = 27;
             break;
           }
-          id = _step2.value;
-          _context2.next = 12;
-          return (0,_api_component__WEBPACK_IMPORTED_MODULE_15__.getNewsDetails)(id);
-        case 12:
-          news = _context2.sent;
-          if (news) {
-            loadedNews.push(news);
+          newsId = _step.value;
+          _context.next = 23;
+          return (0,_news_component__WEBPACK_IMPORTED_MODULE_14__.getNewsDetails)(newsId);
+        case 23:
+          newsDetails = _context.sent;
+          if (newsDetails) {
+            (0,_newsDisplay_component__WEBPACK_IMPORTED_MODULE_13__.displayNewsDetails)(newsDetails, currentPage + 1);
           }
-        case 14:
-          _context2.next = 8;
+        case 25:
+          _context.next = 19;
           break;
-        case 16:
-          _context2.next = 21;
+        case 27:
+          _context.next = 32;
           break;
-        case 18:
-          _context2.prev = 18;
-          _context2.t0 = _context2["catch"](6);
-          _iterator2.e(_context2.t0);
-        case 21:
-          _context2.prev = 21;
-          _iterator2.f();
-          return _context2.finish(21);
-        case 24:
-          // Hide all pages
-          allPages = document.getElementsByClassName('news-page');
-          for (i = 0; i < allPages.length; i++) {
-            allPages[i].style.display = 'none';
-          }
-
-          // Check if the current page div exists
-          if (currentPageDiv) {
-            // If the div exists, display the news for the current page
-            currentPageDiv.style.display = 'block';
-          } else {
-            // If the div doesn't exist, create a new div for the current page and display the news
-            newsContainer = document.getElementById('newsContainer');
-            newPageDiv = document.createElement('div');
-            newPageDiv.id = "page".concat(currentPage);
-            newPageDiv.className = 'news-page';
-            newsContainer.appendChild(newPageDiv);
-            loadedNews.forEach(function (news) {
-              (0,_newsDisplay_component__WEBPACK_IMPORTED_MODULE_14__.displayNewsDetails)(news, currentPage); // Passa il numero di pagina corrente
-            });
-          }
-
-          // Update the current page indicator
-          currentPageIndicator = document.getElementById('currentPage');
-          currentPageIndicator.textContent = "Pagina ".concat(currentPage);
-
-          // Disable the next page button if it's the last page
-          totalPages = Math.ceil(totalNewsCount / newsPerPage);
-          nextPageBtn.disabled = currentPage === totalPages;
-        case 31:
+        case 29:
+          _context.prev = 29;
+          _context.t0 = _context["catch"](17);
+          _iterator.e(_context.t0);
+        case 32:
+          _context.prev = 32;
+          _iterator.f();
+          return _context.finish(32);
+        case 35:
+          updateCurrentPageIndicator();
+          updatePaginationButtons();
+        case 37:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
-    }, _callee2, null, [[6, 18, 21, 24]]);
+    }, _callee, null, [[17, 29, 32, 35]]);
   }));
   return _loadNewsForCurrentPage.apply(this, arguments);
 }
-
+function getLatestNewsCount() {
+  return _getLatestNewsCount.apply(this, arguments);
+}
+function _getLatestNewsCount() {
+  _getLatestNewsCount = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default().mark(function _callee2() {
+    var response, newsIds;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.prev = 0;
+          _context2.next = 3;
+          return axios__WEBPACK_IMPORTED_MODULE_15__["default"].get("".concat(apiUrl, "/newstories.json"));
+        case 3:
+          response = _context2.sent;
+          newsIds = response.data;
+          return _context2.abrupt("return", newsIds.length);
+        case 8:
+          _context2.prev = 8;
+          _context2.t0 = _context2["catch"](0);
+          console.error("Errore durante il recupero del numero totale di notizie:", _context2.t0);
+          return _context2.abrupt("return", 0);
+        case 12:
+        case "end":
+          return _context2.stop();
+      }
+    }, _callee2, null, [[0, 8]]);
+  }));
+  return _getLatestNewsCount.apply(this, arguments);
+}
+function getLatestNewsIds() {
+  return _getLatestNewsIds.apply(this, arguments);
+}
+function _getLatestNewsIds() {
+  _getLatestNewsIds = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default().mark(function _callee3() {
+    var startIndex,
+      endIndex,
+      response,
+      newsIds,
+      slicedNewsIds,
+      _args3 = arguments;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default().wrap(function _callee3$(_context3) {
+      while (1) switch (_context3.prev = _context3.next) {
+        case 0:
+          startIndex = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : 0;
+          endIndex = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : 10;
+          _context3.prev = 2;
+          _context3.next = 5;
+          return axios__WEBPACK_IMPORTED_MODULE_15__["default"].get("".concat(apiUrl, "/newstories.json"));
+        case 5:
+          response = _context3.sent;
+          newsIds = response.data;
+          slicedNewsIds = newsIds.slice(startIndex, endIndex);
+          return _context3.abrupt("return", slicedNewsIds);
+        case 11:
+          _context3.prev = 11;
+          _context3.t0 = _context3["catch"](2);
+          console.error("Errore durante il recupero degli ID delle ultime notizie:", _context3.t0);
+          return _context3.abrupt("return", []);
+        case 15:
+        case "end":
+          return _context3.stop();
+      }
+    }, _callee3, null, [[2, 11]]);
+  }));
+  return _getLatestNewsIds.apply(this, arguments);
+}
+function loadMoreNews() {
+  return _loadMoreNews.apply(this, arguments);
+}
+function _loadMoreNews() {
+  _loadMoreNews = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default().mark(function _callee4() {
+    var totalPages;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_12___default().wrap(function _callee4$(_context4) {
+      while (1) switch (_context4.prev = _context4.next) {
+        case 0:
+          totalPages = Math.ceil(totalNewsCount / newsPerPage);
+          if (currentPage < totalPages || totalPages === 1) {
+            currentPage++;
+            loadNewsForCurrentPage();
+            updatePaginationButtons();
+          }
+        case 2:
+        case "end":
+          return _context4.stop();
+      }
+    }, _callee4);
+  }));
+  return _loadMoreNews.apply(this, arguments);
+}
+function updatePaginationButtons() {
+  var prevPageBtn = document.getElementById("prevPageBtn");
+  var nextPageBtn = document.getElementById("nextPageBtn");
+  var totalPages = Math.ceil(totalNewsCount / newsPerPage);
+  if (currentPage === 1) {
+    prevPageBtn.disabled = true;
+  } else {
+    prevPageBtn.disabled = false;
+  }
+  if (currentPage === totalPages) {
+    nextPageBtn.disabled = true;
+  } else {
+    nextPageBtn.disabled = false;
+  }
+}
+function updateCurrentPageIndicator() {
+  var currentPageIndicator = document.getElementById("currentPage");
+  currentPageIndicator.textContent = "Pagina ".concat(currentPage);
+}
 
 /***/ }),
 
@@ -20460,7 +20422,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "main {\n  background-color: #950707;\n  max-width: 100vw;\n}\n\n.row {\n  max-width: 100vw;\n}", "",{"version":3,"sources":["webpack://./src/sass/style.sass"],"names":[],"mappings":"AAAA;EACI,yBAAA;EACA,gBAAA;AACJ;;AAAA;EACI,gBAAA;AAGJ","sourcesContent":["main\r\n    background-color: #950707\r\n    max-width: 100vw\r\n.row\r\n    max-width: 100vw"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "main {\n  background-color: #950707;\n  max-width: 100vw;\n}\n\n.row {\n  max-width: 100vw;\n}\n\n.page {\n  display: none;\n}\n\n.page.active {\n  display: block;\n}", "",{"version":3,"sources":["webpack://./src/sass/style.sass"],"names":[],"mappings":"AAAA;EACI,yBAAA;EACA,gBAAA;AACJ;;AAAA;EACI,gBAAA;AAGJ;;AAFA;EACI,aAAA;AAKJ;;AAJA;EACI,cAAA;AAOJ","sourcesContent":["main\r\n    background-color: #950707\r\n    max-width: 100vw\r\n.row\r\n    max-width: 100vw\r\n.page\r\n    display: none\r\n.page.active\r\n    display: block"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -26464,9 +26426,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var loadMoreBtn = document.getElementById('loadMoreBtn');
-loadMoreBtn.addEventListener('click', _components_newsLoad_component__WEBPACK_IMPORTED_MODULE_4__.loadMoreNews);
-(0,_components_news_component__WEBPACK_IMPORTED_MODULE_3__.getLatestNewsIds)();
+var loadMoreBtn = document.getElementById("loadMoreBtn");
+loadMoreBtn.addEventListener("click", _components_newsLoad_component__WEBPACK_IMPORTED_MODULE_4__.loadMoreNews);
+var prevPageBtn = document.getElementById("prevPageBtn");
+prevPageBtn.addEventListener("click", _components_newsLoad_component__WEBPACK_IMPORTED_MODULE_4__.goToPreviousPage);
+var nextPageBtn = document.getElementById("nextPageBtn");
+nextPageBtn.addEventListener("click", _components_newsLoad_component__WEBPACK_IMPORTED_MODULE_4__.goToNextPage);
+(0,_components_news_component__WEBPACK_IMPORTED_MODULE_3__.getLatestNewsIds)().then(function () {
+  (0,_components_newsLoad_component__WEBPACK_IMPORTED_MODULE_4__.loadNewsForCurrentPage)();
+});
 })();
 
 /******/ })()
