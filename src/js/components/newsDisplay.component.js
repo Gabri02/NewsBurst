@@ -2,11 +2,11 @@ export function displayNewsDetails(news, page) {
   const { title, url, time } = news;
 
   const div = document.createElement("div");
+  div.classList.add("news-item");
   const heading = document.createElement("h6");
   const link = document.createElement("a");
   const paragraph = document.createElement("p");
   const date = document.createElement("p");
-  const hr = document.createElement("hr");
 
   heading.textContent = `Title: ${title}`;
   link.textContent = `Link: ${url}`;
@@ -17,7 +17,6 @@ export function displayNewsDetails(news, page) {
   div.appendChild(heading);
   div.appendChild(paragraph);
   div.appendChild(date);
-  div.appendChild(hr);
 
   const pageNumber = page > 0 ? page : 1;
   const pageDiv = document.getElementById(`page${pageNumber}`);

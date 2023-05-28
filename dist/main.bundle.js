@@ -111,11 +111,11 @@ function displayNewsDetails(news, page) {
     url = news.url,
     time = news.time;
   var div = document.createElement("div");
+  div.classList.add("news-item");
   var heading = document.createElement("h6");
   var link = document.createElement("a");
   var paragraph = document.createElement("p");
   var date = document.createElement("p");
-  var hr = document.createElement("hr");
   heading.textContent = "Title: ".concat(title);
   link.textContent = "Link: ".concat(url);
   link.href = url;
@@ -124,7 +124,6 @@ function displayNewsDetails(news, page) {
   div.appendChild(heading);
   div.appendChild(paragraph);
   div.appendChild(date);
-  div.appendChild(hr);
   var pageNumber = page > 0 ? page : 1;
   var pageDiv = document.getElementById("page".concat(pageNumber));
   if (pageDiv) {
@@ -20422,7 +20421,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "main {\n  background-color: #950707;\n  max-width: 100vw;\n}\n\n.row {\n  max-width: 100vw;\n}\n\n.page {\n  display: none;\n}\n\n.page.active {\n  display: block;\n}", "",{"version":3,"sources":["webpack://./src/sass/style.sass"],"names":[],"mappings":"AAAA;EACI,yBAAA;EACA,gBAAA;AACJ;;AAAA;EACI,gBAAA;AAGJ;;AAFA;EACI,aAAA;AAKJ;;AAJA;EACI,cAAA;AAOJ","sourcesContent":["main\r\n    background-color: #950707\r\n    max-width: 100vw\r\n.row\r\n    max-width: 100vw\r\n.page\r\n    display: none\r\n.page.active\r\n    display: block"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "main {\n  background-color: #950707;\n  max-width: 100vw;\n}\n\n.row {\n  max-width: 100vw;\n}\n\n.page {\n  display: none;\n}\n\n.page.active {\n  display: block;\n}\n\n.news-item {\n  margin: 5px;\n  background-color: #e9e9e9;\n}", "",{"version":3,"sources":["webpack://./src/sass/style.sass"],"names":[],"mappings":"AAAA;EACI,yBAAA;EACA,gBAAA;AACJ;;AAAA;EACI,gBAAA;AAGJ;;AAFA;EACI,aAAA;AAKJ;;AAJA;EACI,cAAA;AAOJ;;AANA;EACE,WAAA;EACA,yBAAA;AASF","sourcesContent":["main\r\n    background-color: #950707\r\n    max-width: 100vw\r\n.row\r\n    max-width: 100vw\r\n.page\r\n    display: none\r\n.page.active\r\n    display: block\r\n.news-item\r\n  margin: 5px\r\n  background-color: #e9e9e9\r\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
