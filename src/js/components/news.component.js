@@ -9,18 +9,18 @@ let currentPage = 1;
 let totalNewsCount = 0;
 let newsIds = [];
 
-export async function getLatestNewsIds(startIndex, endIndex) {
-  let newsIds = [];
+export async function getLatestNewsIds(startIndex = 0, endIndex = 10) {
   try {
     const response = await axios.get(`${apiUrl}/newstories.json`);
     newsIds = response.data.slice(startIndex, endIndex);
+    totalNewsCount = newsIds.length; // Aggiungi questa riga per aggiornare correttamente totalNewsCount
 
-    for (const id of newsIds) {
-      const news = await getNewsDetails(id);
-      if (news) {
-        displayNewsDetails(news);
+    for (let i = 0; i < newsIds.length; i++) {
+      const newsItem = await getNewsDetails(newsIds[i]);
+      if (newsItem) {
+        displayNewsDetails(newsItem, currentPage); // Passa il numero di pagina corrente
       }
-      totalNewsCount += 1;
+      loadedNewsCount += 1;
     }
 
     loadedNewsCount += 10;
@@ -28,5 +28,5 @@ export async function getLatestNewsIds(startIndex, endIndex) {
     console.error('Errore durante il recupero degli ID delle ultime notizie:', error);
   }
 
-  return { newsIds, loadedNewsCount };
+  return { newsIds, loadedNewsCount, totalNewsCount }; // Aggiungi totalNewsCount alla risposta
 }
