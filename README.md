@@ -1,4 +1,4 @@
-# HighTech News
+# NewsBurst
 
 HighTech News is a web application that fetches the latest technology news using a news service API. The news articles are displayed in a fixed-size grid and dynamically updated when navigating to the next page or loading more news.
 
