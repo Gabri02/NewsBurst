@@ -1,6 +1,6 @@
 # NewsBurst
 
-HighTech News is a web application that fetches the latest technology news using a news service API. The news articles are displayed in a fixed-size grid and dynamically updated when navigating to the next page or loading more news.
+NewsBurst is a web application that fetches the latest technology news using a news service API. The news articles are displayed in a fixed-size grid and dynamically updated when navigating to the next page or loading more news.
 
 ## Features
 
@@ -16,7 +16,7 @@ HighTech News is a web application that fetches the latest technology news using
 - CSS (SASS)
 - JavaScript
 - Bootstrap 5
-- Erbpack (a bundling package)
+- Webpack (a bundling package)
 - Axios (an HTTP requests library)
 - Lodash (a utility library)
 
@@ -24,13 +24,13 @@ HighTech News is a web application that fetches the latest technology news using
 
 1. Clone the repository:
 
-git clone <repository URL>
+git clone [<repository URL>](https://github.com/Gabri02/NewsBurst)
   
 2. Install the dependencies using the npm package manager:
 
 npm install
   
-3. Start the development server using Erbpack:
+3. Start the development server using Webpack:
 
 npm run dev
   
