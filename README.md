@@ -54,6 +54,4 @@ This project is distributed under the MIT License. For more information, see the
 
 ## Contact
 
-For further information or questions, you can contact me at [your@email.com].
-
-Replace `<repository URL>` with the actual URL of your GitHub repository. You can also customize other sections of the README, such as the "Contact" section, to fit your information.
+For further information or questions, you can contact me at gabrielsesta@gmail.com
