@@ -20,8 +20,9 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
-        { from: "./src/img", to: "img" }, // Copia i file dalla cartella src/img nella cartella dist/img
-        { from: "./src/favicon.ico", to: "" }, // Copia i file dalla cartella src/img nella cartella dist/img
+        { from: "./src/img", to: "img" },
+        { from: "./src/favicon.ico", to: "" },
+        { from: "./src/site.webmanifest", to: "" },
       ],
     }),
     new webpack.ProvidePlugin({
@@ -30,31 +31,31 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/html/index.html",
       filename: "index.html",
-      favicon: "./src/favicon.ico",// Aggiorna il percorso del file favicon.ico
-      scriptLoading: "defer", // Aggiungi questa riga per mantenere il comportamento di script defer
-      inject: "head", // Aggiungi il percorso all'icona del favicon
+      favicon: "./src/favicon.ico", 
+      scriptLoading: "defer",
+      inject: "head",
       meta: {
         "apple-touch-icon": {
           name: "apple-touch-icon",
           property: "apple-touch-icon",
-          content: "/img/apple-touch-icon.png", // Aggiungi il percorso all'icona di Apple touch
+          content: "/img/apple-touch-icon.png",
         },
         "icon-32": {
           name: "icon",
           property: "icon",
           sizes: "32x32",
-          content: "/img/favicon-32x32.png", // Aggiungi il percorso all'icona da 32x32
+          content: "/img/favicon-32x32.png",
         },
         "icon-16": {
           name: "icon",
           property: "icon",
           sizes: "16x16",
-          content: "/img/favicon-16x16.png", // Aggiungi il percorso all'icona da 16x16
+          content: "/img/favicon-16x16.png",
         },
         manifest: {
           name: "manifest",
           property: "manifest",
-          href: "/img/site.webmanifest", // Aggiungi il percorso al file del manifesto
+          href: "./site.webmanifest",
         },
       },
       publicPath: "./",
@@ -64,7 +65,7 @@ module.exports = {
       process: "process/browser",
     }),
     new webpack.ProvidePlugin({
-      process: "process/browser", // Usa 'process' come modulo fornito
+      process: "process/browser",
     }),
   ],
   devtool: "source-map",
